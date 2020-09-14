@@ -10,15 +10,15 @@ import configureStore from "./redux/configureStore";
 const { persistor, store } = configureStore();
 
 ReactDOM.render(
-	<Provider store={store}>
-		<PersistGate
-			loading={<Typography>Loading...</Typography>}
-			persistor={persistor}
-		>
-			<BrowserRouter>
-				<App />
-			</BrowserRouter>
-		</PersistGate>
-	</Provider>,
-	document.getElementById("root")
+  <Provider store={store}>
+    <PersistGate
+      loading={<Typography>Loading...</Typography>}
+      persistor={persistor}
+    >
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </PersistGate>
+  </Provider>,
+  document.getElementById("root")
 );
