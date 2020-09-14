@@ -1,4 +1,3 @@
-import { createBrowserHistory } from "history";
 import * as localforage from "localforage";
 import { applyMiddleware, createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
@@ -15,7 +14,6 @@ const persistConfig: PersistConfig<any> = {
 };
 
 const logger = (createLogger as any)();
-const history = createBrowserHistory();
 
 const dev = process.env.NODE_ENV === "development";
 
@@ -25,12 +23,10 @@ if (dev) {
 	middleware = composeWithDevTools(middleware);
 }
 
-const persistedReducer = persistReducer(persistConfig, rootReducer(history));
+const persistedReducer = persistReducer(persistConfig, rootReducer());
 
 export default () => {
 	const store = createStore(persistedReducer, {}, middleware) as any;
 	const persistor = persistStore(store);
 	return { store, persistor };
 };
-
-export { history };

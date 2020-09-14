@@ -4,10 +4,10 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import { makeStyles } from "@material-ui/styles";
 import * as React from "react";
 import { useSelector } from "react-redux";
-import { useActions } from "../actions";
-import * as TodoActions from "../actions/todo";
-import { Todo } from "../model";
-import { RootState } from "../reducers";
+import { useActions } from "../../redux/actions";
+import * as TodoActions from "../../redux/actions/todo";
+import { Todo } from "../../redux/model";
+import { RootState } from "../../redux/reducers";
 
 export function TodoTable() {
 	const classes = useStyles();
